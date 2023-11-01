@@ -1,0 +1,37 @@
+From 0a4d6c3ae61bd6fd6a664b2b55b3e9453cf813ac Mon Sep 17 00:00:00 2001
+From: Peter Jones <pjones@redhat.com>
+Date: Thu, 23 Jun 2016 14:47:35 -0400
+Subject: [PATCH 21/55] Fix thinko on --set-index naming.
+
+Related: rhbz#1285601
+
+Signed-off-by: Peter Jones <pjones@redhat.com>
+---
+ grubby.8 | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/grubby.8 b/grubby.8
+index a4691f8ddb2..f1bfb9336e9 100644
+--- a/grubby.8
++++ b/grubby.8
+@@ -7,7 +7,7 @@ grubby \- command line tool for configuring grub, lilo, elilo, yaboot and zipl
+        [--bad-image-okay] [--boot-filesystem=\fIbootfs\fR] 
+        [--bootloader-probe] [--config-file \fIpath\fR] [--copy-default]
+        [--debug] [--default-kernel] [--default-index] [--default-title]
+-       [--devtree=\fIdevicetree.dtb\fR] [--set-entry=\fIentry-index\fR]
++       [--devtree=\fIdevicetree.dtb\fR] [--set-index=\fIentry-index\fR]
+        [--grub] [--lilo] [--yaboot] [--silo] [--zipl]
+        [--info=\fIkernel-path\fR] [--initrd=\fIinitrd-path\fR] 
+        [--make-default] [-o path] [--version]
+@@ -49,7 +49,7 @@ with that title are used.
+ Add a new boot entry for the kernel located at \fIkernel-path\fR.
+ 
+ .TP
+-\fB-\-set-entry\fR=\fIentry-index\fR
++\fB-\-set-index\fR=\fIentry-index\fR
+ Set the position at which to add a new entry created with \fB-\-add-kernel\fR.
+ 
+ .TP
+-- 
+2.17.1
+

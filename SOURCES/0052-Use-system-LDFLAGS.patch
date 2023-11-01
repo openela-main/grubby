@@ -1,0 +1,24 @@
+From be8c1d611186d1fc35c50d417ba7b43ce25c6054 Mon Sep 17 00:00:00 2001
+From: Rafael dos Santos <rdossant@redhat.com>
+Date: Tue, 29 May 2018 15:15:24 +0200
+Subject: [PATCH 52/55] Use system LDFLAGS
+
+---
+ Makefile | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Makefile b/Makefile
+index cc7e823959f..65cd28295aa 100644
+--- a/Makefile
++++ b/Makefile
+@@ -25,6 +25,7 @@ OBJECTS = grubby.o log.o
+ CC = gcc
+ RPM_OPT_FLAGS ?= -O2 -g -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector
+ CFLAGS += $(RPM_OPT_FLAGS) -std=gnu99 -Wall -Werror -Wno-error=unused-function -Wno-unused-function -ggdb
++LDFLAGS := $(RPM_LD_FLAGS)
+ LDFLAGS := 
+ VERBOSE_TEST :=
+ ifneq ($(VERBOSE_TEST),)
+-- 
+2.17.1
+

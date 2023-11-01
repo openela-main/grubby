@@ -1,0 +1,35 @@
+From d4b710802da3d780799f1e01e18b613e77b95bb3 Mon Sep 17 00:00:00 2001
+From: Peter Jones <pjones@redhat.com>
+Date: Wed, 24 Jun 2015 09:20:35 -0400
+Subject: [PATCH 03/55] Fix some stray whitespace
+
+Signed-off-by: Peter Jones <pjones@redhat.com>
+---
+ README.rst | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/README.rst b/README.rst
+index a5743ff2f96..754454b7bca 100644
+--- a/README.rst
++++ b/README.rst
+@@ -42,7 +42,7 @@ The invocation syntax is::
+ For example the line::
+ 
+     grubTest grub.1 updargs/g1.1 --update-kernel=DEFAULT --args="root=/dev/hda1"
+-    
++
+ means execute the command::
+ 
+     ./grubby --grub --config-file tests/grub.1 --update-kernel=DEFAULT \
+@@ -66,7 +66,7 @@ Writing New Test Cases
+ ----------------------
+ 
+ To write a new test case for grubby you need a config file which matches the
+-initial test conditions (either existing one or a new one), provide a 
++initial test conditions (either existing one or a new one), provide a
+ results file (likely a new one) which contains the expected configuration or
+ output and finally add a call to the test function(s) using the desired grubby
+ parameters in an appropriate section of `test.sh`.
+-- 
+2.17.1
+
