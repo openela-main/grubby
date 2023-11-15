@@ -1,0 +1,30 @@
+From e15806969cbae83a94068d99e4f1d295dab95eac Mon Sep 17 00:00:00 2001
+From: Jan Stodola <jstodola@redhat.com>
+Date: Tue, 20 Nov 2018 15:02:19 +0100
+Subject: [PATCH] Improve man page for --info option
+
+1) commit 941d4a0b removed description of --info DEFAULT
+2) Add description of --info ALL
+---
+ grubby.8 | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/grubby.8 b/grubby.8
+index 1e8f140c4df..8b98433960c 100644
+--- a/grubby.8
++++ b/grubby.8
+@@ -185,7 +185,10 @@ Display the title of the current default boot entry and exit.
+ 
+ .TP
+ \fB-\-info\fR=\fIkernel-path\fR
+-Display information on all boot entries which match \fIkernel-path\fR. I
++Display information on all boot entries which match \fIkernel-path\fR. If
++\fIkernel-path\fR is \fBDEFAULT\fR, then information on the default kernel
++is displayed. If \fIkernel-path\fR is \fBALL\fR, then information on all boot
++entries are displayed.
+ 
+ .TP
+ \fB-\-bootloader-probe\fR
+-- 
+2.19.1
+
