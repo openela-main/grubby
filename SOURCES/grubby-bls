@@ -812,7 +812,9 @@ if [[ -n $kernel ]]; then
 	    opts="${opts} ${args}"
 	fi
     else
-	opts="${args}"
+	opts="${opts} ${args}"
+	remove_args="$kernelopts"
+	update_args "${opts}" "${remove_args}" ""
     fi
 
     add_bls_fragment "${kernel}" "${title}" "${opts}" "${initrd}" \

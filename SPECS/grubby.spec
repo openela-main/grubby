@@ -1,6 +1,6 @@
 Name: grubby
 Version: 8.40
-Release: 47%{?dist}
+Release: 48%{?dist}
 Summary: Command line tool for updating BootLoaderSpec files
 License: GPLv2+
 URL: https://github.com/rhinstaller/grubby
@@ -169,6 +169,10 @@ current boot environment.
 %{_mandir}/man8/*.8*
 
 %changelog
+* Tue Feb 21 2023 Marta Lewandowska <mlewando@redhat.com> - 8.40-48
+- Apply Marta's default args fix
+- Resolves: #1900829
+
 * Mon Oct 10 2022 Robbie Harwood <rharwood@redhat.com> - 8.40-47
 - Backport fedora/rhel9 initial cmdline population
 - Resolves: #2129740
