@@ -1,0 +1,29 @@
+From 850fbd8b0dcc728653993661b92349f3eb2b39a6 Mon Sep 17 00:00:00 2001
+From: Robert Marshall <rmarshall@redhat.com>
+Date: Tue, 28 Jun 2016 16:26:32 -0400
+Subject: [PATCH 27/55] Fix inline help typo (#1232168)
+
+Discovered a typo while synchronizing the inline help with the man pages
+and fixed it.
+
+Related: rhbz#1232168
+---
+ grubby.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/grubby.c b/grubby.c
+index d889399449b..e2384c55898 100644
+--- a/grubby.c
++++ b/grubby.c
+@@ -4786,7 +4786,7 @@ int main(int argc, const char **argv)
+ 		 NULL},
+ 		{"boot-filesystem", 0, POPT_ARG_STRING, &bootPrefix, 0,
+ 		 _
+-		 ("filestystem which contains /boot directory (for testing only)"),
++		 ("filesystem which contains /boot directory (for testing only)"),
+ 		 _("bootfs")},
+ #if defined(__i386__) || defined(__x86_64__) || defined (__powerpc64__) || defined (__ia64__)
+ 		{"bootloader-probe", 0, POPT_ARG_NONE, &bootloaderProbe, 0,
+-- 
+2.17.1
+

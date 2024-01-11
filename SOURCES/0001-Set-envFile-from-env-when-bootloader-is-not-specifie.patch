@@ -1,0 +1,30 @@
+From b5c0a31ae38c2c42f0dea8c2d7282694f020e976 Mon Sep 17 00:00:00 2001
+From: "Brian C. Lane" <bcl@redhat.com>
+Date: Mon, 13 Apr 2015 13:57:33 -0700
+Subject: [PATCH 01/55] Set envFile from --env when bootloader is not specified
+
+---
+ grubby.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/grubby.c b/grubby.c
+index d4ebb86168d..53fe9250e27 100644
+--- a/grubby.c
++++ b/grubby.c
+@@ -4423,9 +4423,11 @@ int main(int argc, const char ** argv) {
+     }
+ 
+     if (!cfi) {
+-        if (grub2FindConfig(&grub2ConfigType))
++        if (grub2FindConfig(&grub2ConfigType)) {
+ 	    cfi = &grub2ConfigType;
+-	else
++	    if (envPath)
++		cfi->envFile = envPath;
++        } else
+       #ifdef __ia64__
+ 	    cfi = &eliloConfigType;
+       #elif __powerpc__
+-- 
+2.17.1
+

@@ -1,0 +1,38 @@
+From 92adaf4e655c3e6833e6f3b96fe1f5b75f75fd64 Mon Sep 17 00:00:00 2001
+From: Peter Jones <pjones@redhat.com>
+Date: Thu, 6 Aug 2015 10:06:13 -0400
+Subject: [PATCH 13/55] Make it possible to run "test.sh --verbose" from the
+ make command line.
+
+Signed-off-by: Peter Jones <pjones@redhat.com>
+---
+ Makefile | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index ade4421aa25..cc7e823959f 100644
+--- a/Makefile
++++ b/Makefile
+@@ -26,6 +26,10 @@ CC = gcc
+ RPM_OPT_FLAGS ?= -O2 -g -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector
+ CFLAGS += $(RPM_OPT_FLAGS) -std=gnu99 -Wall -Werror -Wno-error=unused-function -Wno-unused-function -ggdb
+ LDFLAGS := 
++VERBOSE_TEST :=
++ifneq ($(VERBOSE_TEST),)
++	VERBOSE_TEST="--verbose"
++endif
+ 
+ grubby_LIBS = -lblkid -lpopt
+ 
+@@ -39,7 +43,7 @@ debug : clean
+ 
+ test: all
+ 	@export TOPDIR=$(TOPDIR)
+-	@./test.sh
++	@./test.sh $(VERBOSE_TEST)
+ 
+ install: all
+ 	mkdir -p $(DESTDIR)$(PREFIX)/sbin
+-- 
+2.17.1
+
