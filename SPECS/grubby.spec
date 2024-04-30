@@ -1,6 +1,6 @@
 Name: grubby
 Version: 8.40
-Release: 63%{?dist}
+Release: 64%{?dist}
 Summary: Command line tool for updating bootloader configs
 License: GPLv2+
 URL: https://github.com/rhinstaller/grubby
@@ -131,6 +131,10 @@ current boot environment.
 %{_mandir}/man8/*.8*
 
 %changelog
+* Wed Jan 10 2024 Marta Lewandowska <mlewando@redhat.com> - 8.40-64
+- Do not overwrite all vars that start with GRUB_CMDLINE_LINUX
+- Resolves: #RHEL-21301
+
 * Tue Feb 21 2023 Marta Lewandowska <mlewando@redhat.com> - 8.40-63
 - remove root= when not copying default
 - Resolves: #2127453

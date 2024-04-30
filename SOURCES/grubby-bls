@@ -500,7 +500,7 @@ update_bls_fragment() {
             if [[ -n $old_args ]]; then
                 opts="$(update_args "${old_args}" "${remove_args}" "${add_args}")"
                 opts="$(echo "$opts" | sed -e 's/\//\\\//g')"
-                sed -i -e "s/^GRUB_CMDLINE_LINUX.*/GRUB_CMDLINE_LINUX=\\\"${opts}\\\"/" "${grub_etc_default}"
+                sed -i -e "s/^GRUB_CMDLINE_LINUX=.*/GRUB_CMDLINE_LINUX=\\\"${opts}\\\"/" "${grub_etc_default}"
             fi
         fi
 
