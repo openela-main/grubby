@@ -1,6 +1,6 @@
 Name: grubby
 Version: 8.40
-Release: 64%{?dist}
+Release: 68%{?dist}
 Summary: Command line tool for updating bootloader configs
 License: GPLv2+
 URL: https://github.com/rhinstaller/grubby
@@ -131,6 +131,22 @@ current boot environment.
 %{_mandir}/man8/*.8*
 
 %changelog
+* Wed Jul 30 2025 Leo Sandoval <lsandova@redhat.com> - 8.40-68
+- Update cfg when setting a default kernel
+  Resolves: #RHEL-106612
+
+* Mon May 19 2025 Nicolas Frayer <nfrayer@redhat.com> - 8.40-67
+- Bump NVR
+- Related: #RHEL-61421
+
+* Fri Dec 06 2024 Leo Sandoval <lsandova@redhat.com> - 8.40-66
+- grubby-bls: on PPC systems, remove petiboot's version checks
+- Resolves: #RHEL-61421
+
+* Thu Dec 05 2024 Leo Sandoval <lsandova@redhat.com> - 8.40-65
+- On grub cfg updates, run grub2-mkconfig for Xen systems
+  Resolves: #RHEL-50691
+
 * Wed Jan 10 2024 Marta Lewandowska <mlewando@redhat.com> - 8.40-64
 - Do not overwrite all vars that start with GRUB_CMDLINE_LINUX
 - Resolves: #RHEL-21301
