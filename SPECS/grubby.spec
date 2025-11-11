@@ -3,7 +3,7 @@
 
 Name: grubby
 Version: 8.40
-Release: 77%{?dist}
+Release: 83%{?dist}
 Summary: Command line tool for updating bootloader configs
 License: GPL-2.0-or-later
 Source1: grubby-bls
@@ -21,7 +21,7 @@ BuildRequires: pkgconfig
 BuildRequires: popt-devel
 BuildRequires: rpm-devel
 BuildRequires: sed
-%ifarch aarch64 x86_64 %{power64}
+%ifarch aarch64 x86_64 %{power64} riscv64
 BuildRequires: grub2-tools-minimal
 Requires: grub2-tools-minimal
 Requires: grub2-tools
@@ -74,6 +74,31 @@ fi
 %{_mandir}/man8/grubby.8*
 
 %changelog
+* Wed Jul 30 2025 Leo Sandoval <lsandova@redhat.com> - 8.40-83
+- Update cfg when setting a default kernel
+  Resolves:#RHEL-101784
+
+* Wed Apr 16 2025 Andrea Bolognani <abologna@redhat.com> - 8.40-82
+- Fix riscv64 build
+  Resolves: RHEL-85989
+
+* Thu Mar 20 2025 Leo Sandoval <lsandova@redhat.com> - 8.40-81
+- grubby-bls: in s390* systems, run zipl on grub cfg update event
+  Fixes previous commit and formats better the conditions that trigger grub cfg updates
+  Resolves: #RHEL-36092
+
+* Fri Dec 06 2024 Leo Sandoval <lsandova@redhat.com> - 8.40-80
+- grubby-bls: on PPC systems, remove petiboot's version checks
+  Resolves: #RHEL-70194
+
+* Fri Dec 06 2024 Leo Sandoval <lsandova@redhat.com> - 8.40-79
+- grubby-bls: in s390* systems, run zipl on grub cfg update event
+  Resolves: #RHEL-36092
+
+* Thu Dec 05 2024 Leo Sandoval <lsandova@redhat.com> - 8.40-78
+- On grub cfg updates, run grub2-mkconfig for Xen systems
+  Resolves: #RHEL-70200
+
 * Tue Oct 29 2024 Troy Dawson <tdawson@redhat.com> - 8.40-77
 - Bump release for October 2024 mass rebuild:
   Resolves: RHEL-64018

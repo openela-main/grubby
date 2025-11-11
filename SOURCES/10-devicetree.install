@@ -2,7 +2,7 @@
 
 # set -x
 
-if [[ "$(uname -m)" == arm* || "$(uname -m)" == aarch64 ]]
+if [[ "$(uname -m)" == arm* || "$(uname -m)" == aarch64 || "$(uname -m)" == riscv64 ]]
 then
 COMMAND="$1"
 KERNEL_VERSION="$2"
