@@ -1,6 +1,6 @@
 Name: grubby
 Version: 8.40
-Release: 68%{?dist}
+Release: 69%{?dist}
 Summary: Command line tool for updating bootloader configs
 License: GPLv2+
 URL: https://github.com/rhinstaller/grubby
@@ -131,6 +131,10 @@ current boot environment.
 %{_mandir}/man8/*.8*
 
 %changelog
+* Wed Sep 03 2025 Leo Sandoval <lsandova@redhat.com> - 8.40-69
+- grubby-bls: in s390* systems, run zipl on grub cfg update event
+  Resolves: #RHEL-106612
+
 * Wed Jul 30 2025 Leo Sandoval <lsandova@redhat.com> - 8.40-68
 - Update cfg when setting a default kernel
   Resolves: #RHEL-106612
