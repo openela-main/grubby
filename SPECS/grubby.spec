@@ -1,6 +1,6 @@
 Name: grubby
 Version: 8.40
-Release: 49%{?dist}
+Release: 51%{?dist}
 Summary: Command line tool for updating BootLoaderSpec files
 License: GPLv2+
 URL: https://github.com/rhinstaller/grubby
@@ -169,6 +169,14 @@ current boot environment.
 %{_mandir}/man8/*.8*
 
 %changelog
+* Thu Jul 23 2026 Marta Lewandowska <mlewando@redhat.com> - 8.40-51
+- Have grubby only manipulate relevant entries, fallback if empty
+- Resolves: #RHEL-132931
+
+* Fri Jul 03 2026 Marta Lewandowska <mlewando@redhat.com> - 8.40-50
+- Have grubby only manipulate and display relevant entries
+- Resolves: #RHEL-132931
+
 * Wed Jan 10 2024 Marta Lewandowska <mlewando@redhat.com> - 8.40-49
 - Do not overwrite all vars that start with GRUB_CMDLINE_LINUX
 - Resolves: #RHEL-12853

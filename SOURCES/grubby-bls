@@ -85,7 +85,7 @@ get_bls_values() {
     count=0
     local -a files
     local IFS=$'\n'
-    files=($(for bls in ${blsdir}/*.conf ; do
+    files=($(for bls in ${blsdir}/${MACHINE_ID}*.conf ; do
         if ! [[ -e "${bls}" ]] ; then
             continue
         fi
@@ -93,6 +93,17 @@ get_bls_values() {
         bls="${bls##*/}"
         echo "${bls}"
     done | /usr/libexec/grubby/rpm-sort -c rpmnvrcmp 2>/dev/null | tac)) || :
+
+    if [[ -z ${files} ]]; then
+        files=($(for bls in ${blsdir}/*.conf ; do
+            if ! [[ -e "${bls}" ]] ; then
+                continue
+            fi
+            bls="${bls%.conf}"
+            bls="${bls##*/}"
+            echo "${bls}"
+        done | /usr/libexec/grubby/rpm-sort -c rpmnvrcmp 2>/dev/null | tac)) || :
+    fi
 
     for bls in "${files[@]}" ; do
         blspath="${blsdir}/${bls}.conf"
